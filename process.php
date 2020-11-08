@@ -4,7 +4,7 @@
     $mysqli = new mysqli('localhost', 'root', '', 'cms_data') or die(mysqli_error($mysqli)); 
 
     //Setting the default values of input filds If edit btn is not clicked yet
-    $record_id = 0;
+    $id = 0;
     $name_from_db ='';
     $email_from_db = '';
     $number_from_db = '';
@@ -14,10 +14,10 @@
     // EDIT PROCESS
     if(isset($_GET['edit'])) {
 
-        $row_id_to_edit = $_GET['edit'];
+        $id= $_GET['edit'];
         $update_data = true;
         
-        $result = $mysqli->query("SELECT * FROM contact_data WHERE contact_data_id = $row_id_to_edit") 
+        $result = $mysqli->query("SELECT * FROM contact_data WHERE contact_data_id = $id") 
         or die($mysqli->error);
 
         //Make sure that the record exist before processing it
@@ -34,7 +34,7 @@
     // UPDATE PROCESS
     if (isset($_POST['update'])) {
 
-        $record_id = $_POST['record_id_to_update'];
+        $id = $_POST['id'];
 
         $updated_name = $_POST['input_name'];
         $updated_email = $_POST['input_email'];
@@ -47,7 +47,7 @@
         contact_email_db ='$updated_email',
         contact_number_db ='$updated_number', 
         contact_location_db = '$updated_location' 
-        WHERE contact_data_id = $record_id
+        WHERE contact_data_id = $id
         ")
         or die($mysqli->error);
 
@@ -77,9 +77,9 @@
 
     // DELETE PROCESS
     if (isset($_GET['delete'])) {
-        $row_id_to_delete = $_GET['delete'];
+        $id = $_GET['delete'];
 
-        $mysqli->query("DELETE FROM contact_data WHERE contact_data_id = $row_id_to_delete")
+        $mysqli->query("DELETE FROM contact_data WHERE contact_data_id = $id")
         or die($mysqli->error);
 
         $_SESSION['message'] = "Record has been deleted!";

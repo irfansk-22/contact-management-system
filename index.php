@@ -76,7 +76,7 @@ TECHNOLOGIES USED: html5, css3, bootstrap4, jquery, php, MySQL
         <div class="row justify-content-center">
             <form action="process.php" method="POST">
 
-                <input type="hidden" name="record_id_to_update" value="<?php echo $record_id; ?>">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
 
                 <div class="form-group">
                     <label for="name">Name</label>
