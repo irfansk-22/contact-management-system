@@ -4,18 +4,19 @@
     $mysqli = new mysqli('localhost', 'root', '', 'cms_data') or die(mysqli_error($mysqli)); 
 
     //Setting the default values of input filds If edit btn is not clicked yet
-    $id = 0;
+
+    $id = 0;            //variable $id represents the the id of selected or active row 
     $name_from_db ='';
     $email_from_db = '';
     $number_from_db = '';
     $location_from_db = '';
-    $update_data =false; 
+    $update_record = false; 
 
     // EDIT PROCESS
     if(isset($_GET['edit'])) {
 
-        $id= $_GET['edit'];
-        $update_data = true;
+        $id = $_GET['edit'];
+        $update_record = true;
         
         $result = $mysqli->query("SELECT * FROM contact_data WHERE contact_data_id = $id") 
         or die($mysqli->error);
@@ -51,8 +52,8 @@
         ")
         or die($mysqli->error);
 
-        $_SESSION['message'] = "Record has been updated!";
-        $_SESSION['msg_type'] = "warning";
+        $_SESSION['message'] = 'Record has been updated!';
+        $_SESSION['msg_type'] = 'warning';
 
         header('location: index.php');
     }
@@ -69,10 +70,10 @@
             VALUES('$input_name', '$input_email', '$input_number', '$input_location')")
             or die($mysqli->error);
 
-        $_SESSION['message'] = "Record has been saved!";
-        $_SESSION['msg_type'] = "success";
+        $_SESSION['message'] = 'Record has been saved!';
+        $_SESSION['msg_type'] = 'success';
 
-        header("location: index.php");
+        header('location: index.php');
     }
 
     // DELETE PROCESS
@@ -82,10 +83,10 @@
         $mysqli->query("DELETE FROM contact_data WHERE contact_data_id = $id")
         or die($mysqli->error);
 
-        $_SESSION['message'] = "Record has been deleted!";
-        $_SESSION['msg_type'] = "danger";
+        $_SESSION['message'] = 'Record has been deleted!';
+        $_SESSION['msg_type'] = 'danger';
 
-        header("location: index.php");
+        header('location: index.php');
     }
 
 ?>

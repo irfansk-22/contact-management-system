@@ -1,7 +1,7 @@
 <!-- 
 PROJECT NAME: Contact Management System
-AUTHERS: Irfan Shaikh and Prateek Sharma
-TECHNOLOGIES USED: html5, css3, bootstrap4, jquery, php, MySQL
+AUTHERS: Irfan Shaikh(38) and Prateek Sharma(41)
+TECHNOLOGIES USED: html5, css3, bootstrap4, jquery, php, mysql
 -->
 
 <!DOCTYPE html>
@@ -103,7 +103,7 @@ TECHNOLOGIES USED: html5, css3, bootstrap4, jquery, php, MySQL
                 </div>
         
                 <div class="form-group">
-                    <?php if ($update_data == true): ?>
+                    <?php if ($update_record == true): ?>
                         <button class="btn btn-info btn-block" name="update" type="submit">Update</button>
                     <?php else: ?>
                         <button class="btn btn-primary btn-block" name="save" type="submit">Save</button>
