@@ -1,2 +1,3 @@
 # Contact Management System
-## PHP + SQL CRUD Web Application
+
+PHP + MySQL CRUD Web Application
