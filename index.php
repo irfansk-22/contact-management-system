@@ -33,17 +33,66 @@ TECHNOLOGIES USED: html5, css3, bootstrap4, jquery, php, mysql
     <?php endif ?>
 
 
-    <!-- APPLICATION CONTAINER -->
-    <div class="container">
 
+    <!-- HEADER -->
+    <div class="cms-header">
+            <h1>Contact Management System</h1>
+    </div>
+
+    <!-- APPLICATION CONTAINER -->
+    <div class="container row">
+
+    <!-- FORM -->
+    <div class="row justify-content-center col-lg-4">
+            <form action="process.php" method="POST">
+                <div class="" id="cms-form">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="input_name"
+                        value="<?php echo $name_from_db; ?>" placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="input_email" 
+                        value="<?php echo $email_from_db; ?>" placeholder="example@gmail.com" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="number">Number</label>
+                        <input type="text" class="form-control" id="number" name="input_number" 
+                        value="<?php echo $number_from_db; ?>" placeholder="123456899" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control" id="location" name="input_location" 
+                        value="<?php echo $location_from_db; ?>" placeholder="Mumbai, Delhi etc." required>
+                    </div>
+        
+                    <div class="form-group">
+                        <?php if ($update_record == true): ?>
+                            <button class="btn btn-info btn-block" name="update" type="submit">Update</button>
+                        <?php else: ?>
+                            <button class="btn btn-primary btn-block" name="save" type="submit">Save</button>
+                        <?php endif; ?>
+                    </div>
+                </div>     
+            </form>
+        </div>
+
+
+        
+        <!-- SHOW DATABASE DATA IN A TABLE -->
         <?php
-            //querying all the data from db to show in the html table
             $mysqli = new mysqli('localhost', 'root', '', 'cms_data') or die(mysqli_error($mysqli));
             $result = $mysqli->query("SELECT * FROM contact_data") or die($mysqli->error);
         ?>
 
         <!-- TABLE -->
-        <div class="row justify-content-center table-responsive">
+        <div class="row justify-content-center table-responsive-md col-lg-8">
             <table class="table table-hover table-striped table-bordered">
                 <thead class="thead-light">
                     <tr>
@@ -73,47 +122,10 @@ TECHNOLOGIES USED: html5, css3, bootstrap4, jquery, php, mysql
                 <?php endwhile; ?>
             </table>
         </div>
-
-
-        <!-- FORM -->
-        <div class="row justify-content-center">
-            <form action="process.php" method="POST">
-
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
-
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="input_name"
-                    value="<?php echo $name_from_db; ?>" placeholder="John Doe" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="input_email" 
-                    value="<?php echo $email_from_db; ?>" placeholder="example@gmail.com" required>
-                </div>
-        
-                <div class="form-group">
-                    <label for="number">Number</label>
-                    <input type="text" class="form-control" id="number" name="input_number" 
-                    value="<?php echo $number_from_db; ?>" placeholder="123456899" required>
-                </div>
-        
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" class="form-control" id="location" name="input_location" 
-                    value="<?php echo $location_from_db; ?>" placeholder="Mumbai, Delhi etc." required>
-                </div>
-        
-                <div class="form-group">
-                    <?php if ($update_record == true): ?>
-                        <button class="btn btn-info btn-block" name="update" type="submit">Update</button>
-                    <?php else: ?>
-                        <button class="btn btn-primary btn-block" name="save" type="submit">Save</button>
-                    <?php endif; ?>
-                </div> 
-            </form>
-        </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
