@@ -44,8 +44,11 @@ TECHNOLOGIES USED: html5, css3, bootstrap4, jquery, php, mysql
 
     <!-- FORM -->
     <div class="row justify-content-center col-lg-4">
-            <form action="process.php" method="POST">
-                <div class="" id="cms-form">
+            <form action="process.php" method="POST" id="cms-form">
+                <div class="cms-form-container">
+                    <div class="cms-form-header">
+                        <p class="cms-form-header-text">Create New Contact</p>
+                    </div>
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
 
                     <div class="form-group">
@@ -84,7 +87,7 @@ TECHNOLOGIES USED: html5, css3, bootstrap4, jquery, php, mysql
         </div>
 
 
-        
+
         <!-- SHOW DATABASE DATA IN A TABLE -->
         <?php
             $mysqli = new mysqli('localhost', 'root', '', 'cms_data') or die(mysqli_error($mysqli));
@@ -93,7 +96,7 @@ TECHNOLOGIES USED: html5, css3, bootstrap4, jquery, php, mysql
 
         <!-- TABLE -->
         <div class="row justify-content-center table-responsive-md col-lg-8">
-            <table class="table table-hover table-striped table-bordered">
+            <table class="table table-striped table-bordered">
                 <thead class="thead-light">
                     <tr>
                         <th>Name</th>

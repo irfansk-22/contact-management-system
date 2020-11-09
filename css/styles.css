@@ -1,23 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&display=swap');
 
 body {
-    background-color: rgb(245, 251, 252);
+    background-color: rgb(251, 254, 255);
     font-family: 'Montserrat', sans-serif;
-}
-
-#cms-form {
-    padding: 1.25rem;
-    border: 2px solid rgba(55, 118, 212, 0.3);
-    border-radius: 10px;
 }
 
 .cms-header {
     color: lightcoral;
-    background-color: rgb(209, 230, 243);
+    background-color: rgb(207, 230, 245);
     font-family: 'Merriweather', serif;
-    padding: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1rem;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.cms-form-container {
+    padding: 1rem 1.5rem .35rem 1.5rem;
+    border: 2px solid rgba(55, 118, 212, 0.3);
+    border-radius: 10px;
+}
+
+.cms-form-header {
+    background-color: #EEF1F2;
+    border-radius: 5px;
+    border: 1px solid rgba(160, 160, 160, 0.7);
+    text-align: center;
+    margin-bottom: .75rem;
+}
+
+.cms-form-header-text {
+    color: lightcoral;
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: .35rem;
+    margin: 0;
 }
 
 .error {
